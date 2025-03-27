@@ -1,24 +1,54 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { useState } from 'react';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Projects from './pages/Projects';
+import Experience from './components/Experience';
+import About from './components/About';
+import ChatInterface from './components/ChatInterface';
 
 function App() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <div className="App bg-gray-900 text-white font-sans">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Home />
+              <About />
+              <Skills />
+              <Projects />
+              <Experience />
+              <Contact />
+            </>
+          } />
+        </Routes>
+
+        <button 
+          className={`fixed bottom-8 right-8 p-3 md:p-4 w-12 h-12 md:w-auto md:h-auto bg-indigo-500 hover:bg-indigo-600 text-white rounded-full shadow-xl transition-transform transform hover:scale-105 ${isChatOpen ? 'rotate-45' : ''}`}
+          onClick={() => setIsChatOpen(!isChatOpen)}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <span className="text-xl hidden md:inline">{isChatOpen ? 'Close Chat' : 'Chat with AI'}</span>
+          <span className="text-xl md:hidden">AI</span>
+        </button>
+        
+        {isChatOpen && (
+          <div className="fixed bottom-20 right-4 md:right-8 w-[calc(100%-2rem)] md:w-96 max-w-96 bg-white text-black rounded-lg shadow-2xl">
+            <div className="flex justify-between items-center p-4 border-b">
+              <h3 className="font-semibold">AI Assistant</h3>
+              <button onClick={() => setIsChatOpen(false)} className="text-xl text-gray-500 hover:text-gray-800">×</button>
+            </div>
+            <ChatInterface onClose={() => setIsChatOpen(false)} />
+          </div>
+        )}
+      </div>
+    </Router>
   );
 }
 
