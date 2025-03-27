@@ -27,7 +27,7 @@ export default function Contact() {
             className="flex items-center gap-3 text-lg text-white hover:text-indigo-400 transition-colors duration-300 transform hover:scale-105"
           >
             <FaGithub className="text-3xl" />
-            <span>LeetCode</span>
+            <span>GitHub</span>
           </a>
 
           {/* Email */}
