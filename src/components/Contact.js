@@ -10,7 +10,7 @@ export default function Contact() {
         <div className="flex flex-wrap justify-center gap-8">
           {/* LinkedIn */}
           <a 
-            href="https://linkedin.com/in/harsh-prajapati" 
+            href="https://linkedin.com/in/harsh-prajapati-402163281/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex items-center gap-3 text-lg text-white hover:text-indigo-400 transition-colors duration-300 transform hover:scale-105"
