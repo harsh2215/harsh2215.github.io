@@ -16,7 +16,7 @@ export default function Home() {
         
         <div className="space-x-4">
           <a
-            href="https://drive.google.com/file/d/1NSuGdYZOLOBMNOe2SOuP-9nf5AkaEYOx/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1NSuGdYZOLOBMNOe2SOuP-9nf5AkaEYOx/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-indigo-500 hover:bg-indigo-600 text-white px-8 py-3 rounded-full transition duration-300"
