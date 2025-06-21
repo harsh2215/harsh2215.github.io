@@ -2,8 +2,7 @@ import { FaLinkedin, FaGithub, FaMailBulk, FaPhoneAlt } from 'react-icons/fa';
 
 export default function Contact() {
   return (
-    // className="py-16 bg-gradient-to-r from-indigo-800 to-indigo-900"
-    <section id="contact" className="py-16 bg-gray-800 ">
+    <section id="contact" className="py-16 bg-gray-800">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center text-white mb-12">Contact</h2>
         

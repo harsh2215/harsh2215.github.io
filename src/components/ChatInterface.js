@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { sendMessage } from '../services/ChatService';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const ChatInterface = ({ onClose }) => {
     const [messages, setMessages] = useState([
@@ -35,51 +34,41 @@ const ChatInterface = ({ onClose }) => {
     return (
         <div className="flex flex-col h-[500px] bg-gray-50">
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                <AnimatePresence>
-                    {messages.map((msg, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
-                        >
-                            {msg.type === 'bot' && (
-                                <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
-                                    <span className="text-indigo-600 text-sm">AI</span>
-                                </div>
-                            )}
-                            <div className={`max-w-[80%] break-words ${
-                                msg.type === 'user' 
-                                    ? 'bg-indigo-600 text-white rounded-t-2xl rounded-bl-2xl' 
-                                    : 'bg-white border border-gray-200 rounded-t-2xl rounded-br-2xl'
-                            } p-3 shadow-sm`}>
-                                <p className={`text-sm ${msg.type === 'user' ? 'text-white' : 'text-gray-800'}`}>
-                                    {msg.content}
-                                </p>
+                {messages.map((msg, idx) => (
+                    <div
+                        key={idx}
+                        className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
+                    >
+                        {msg.type === 'bot' && (
+                            <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
+                                <span className="text-indigo-600 text-sm">AI</span>
                             </div>
-                            {msg.type === 'user' && (
-                                <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center ml-2">
-                                    <span className="text-white text-sm">You</span>
-                                </div>
-                            )}
-                        </motion.div>
-                    ))}
-                </AnimatePresence>
+                        )}
+                        <div className={`max-w-[80%] break-words ${
+                            msg.type === 'user' 
+                                ? 'bg-indigo-600 text-white rounded-t-2xl rounded-bl-2xl' 
+                                : 'bg-white border border-gray-200 rounded-t-2xl rounded-br-2xl'
+                        } p-3 shadow-sm`}>
+                            <p className={`text-sm ${msg.type === 'user' ? 'text-white' : 'text-gray-800'}`}>
+                                {msg.content}
+                            </p>
+                        </div>
+                        {msg.type === 'user' && (
+                            <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center ml-2">
+                                <span className="text-white text-sm">You</span>
+                            </div>
+                        )}
+                    </div>
+                ))}
                 
                 {isLoading && (
-                    <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="flex items-center space-x-2 pl-10"
-                    >
+                    <div className="flex items-center space-x-2 pl-10">
                         <div className="flex space-x-1">
                             <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
                             <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                             <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
                         </div>
-                    </motion.div>
+                    </div>
                 )}
                 <div ref={messagesEndRef} />
             </div>

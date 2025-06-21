@@ -9,6 +9,8 @@ import Projects from './pages/Projects';
 import Experience from './components/Experience';
 import About from './components/About';
 import ChatInterface from './components/ChatInterface';
+import WorkExperience from './pages/WorkExperience';
+import Certifications from './components/Certifications';
 
 function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -23,7 +25,9 @@ function App() {
               <Home />
               <About />
               <Skills />
+              <WorkExperience />
               <Projects />
+              <Certifications />
               <Experience />
               <Contact />
             </>

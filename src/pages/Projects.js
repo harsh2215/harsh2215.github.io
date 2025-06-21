@@ -1,32 +1,6 @@
-import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaGithub } from 'react-icons/fa';
 
 const projects = [
-  {
-    title: "Security Assessment - Hungama Digital Media",
-    description: [
-      "Bypassed OTP authentication using automated scripts for user impersonation",
-      "Extracted user data by reverse engineering API endpoints",
-      "Developed tools to bypass content protection for premium media access",
-      "Documented vulnerabilities in authentication and content distribution"
-    ],
-    skills: ["Python", "Burp Suite", "HTTP Requests", "Reverse Engineering", "API Security"],
-    duration: "December 2024 - January 2025",
-    github: null
-  },
-  {
-    title: "ULD Packing Optimization",
-    description: [
-      "Proposed an efficient ULD packing solution for FedEx at the InterIIT Tech Meet 13.0 with 80% volume efficiency.",
-      "Implemented package constraints for orientation, stacking, and weight distribution",
-      "Created visualization system for package arrangement optimization",
-      "Integrated priority-based shipment handling"
-    ],
-    skills: ["Gurobi Optimizer", "Linear Programming", "Python", "3D Algorithms", "Optimization"],
-    duration: "November 2024 - December 2024",
-    github: "https://github.com/srcwap7/3D-Knapsack"
-  },
   {
     title: "Custom Congestion Control Algorithm",
     description: [
@@ -54,29 +28,20 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-gray-800">
+    <section id="projects" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <div>
           <h2 className="text-4xl font-bold text-center text-white mb-4">Projects</h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            A collection of my work in security research, optimization, networking, and cryptography
+            A collection of my projects 
           </p>
-        </motion.div>
+        </div>
         
         <div className="grid gap-8 md:grid-cols-2">
           {projects.map((project, index) => (
-            <motion.div
+            <div
               key={index}
-              className="bg-gray-900 rounded-lg p-6 shadow-lg transition-all duration-300 flex flex-col min-h-[300px]"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              className="bg-gray-800 rounded-lg p-6 shadow-lg transition-all duration-300 flex flex-col min-h-[300px]"
             >
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl font-bold text-white">{project.title}</h3>
@@ -113,7 +78,7 @@ export default function Projects() {
                 </div>
                 <p className="text-gray-500 text-sm">{project.duration}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
